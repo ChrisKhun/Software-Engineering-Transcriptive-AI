@@ -47,6 +47,10 @@ sqlite3_stmt* make_statement(sqlite3* db, char *sql, int id)
 **/
 char* select_transcript(int id)
 {      
+   if (id < 1)
+   {
+      return NULL;
+   }
    sqlite3* db;
    char *sql = "SELECT * FROM MED_DATA WHERE ID=(?)";
    int rc;
